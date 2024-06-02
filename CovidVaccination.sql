@@ -109,7 +109,7 @@ select *, (rolling_people_vaccinated/population)*100
 from PercentagePopulationVaccinated;
 
 # create view for visualization
-create view PercentagePopulationVaccinatedviewpercentagepopulationvaccinatedview as
+create view PercentagePopulationVaccinatedview as
 select dea.continent,dea.location,dea.date,dea.population,vac.new_vaccinations,
 sum(vac.new_vaccinations) over (partition by dea.location order by dea.location,date) as rolling_people_vaccinated
 from project1.coviddeaths dea 
